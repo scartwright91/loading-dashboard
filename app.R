@@ -24,6 +24,7 @@ ui <- dashboardPage(
                         href = "style.css")),
     
     # This div contains the loading page for the app
+    # With another div inside for the css animation
     div(
       class = "loading",
       h2("Loading"),
@@ -47,11 +48,13 @@ server <- function(input, output) {
   # which is called using shinyjs::js
   js$hidehead("none")
   
+  # Let the loading page last for 5 seconds
   Sys.sleep(5)
   
-  # To show main body
+  # Now reveal the  sidebar & header
   removeClass(selector = "body", class = "sidebar-collapse")
   js$hidehead("")
+  # Hide the loading div
   hide("loading")
   
   # Define ui body content
