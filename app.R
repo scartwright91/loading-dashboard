@@ -1,4 +1,3 @@
-
 library(shiny)
 library(shinydashboard)
 library(shinyjs)
@@ -16,7 +15,8 @@ ui <- dashboardPage(
     # Include custom js function for displaying header
     extendShinyjs(text = "shinyjs.hidehead = function(parm) {
                           $('header').css('display', parm);
-                          }"),
+                          }",
+                  functions = "hidehead"),
 
     # Include css file in www/
     tags$head(tags$link(rel = "stylesheet",
